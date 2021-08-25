@@ -43,6 +43,7 @@ def make_post_req(left: str = '', right: str = ''):
     r = requests.post(url = API_ENDPOINT + '/diffs', json = data)
     return r
 
+
 def main():
     if len(sys.argv) < 2 or len(sys.argv) > 3:
         print(f'Usage: python {sys.argv[0]} address/on/etherscan')
@@ -50,11 +51,6 @@ def main():
 
     sources = sys.argv[1:]
     codes = ['' for _ in range(len(sources))]
-
-    with open('api_keys.json', mode='r') as key_file:
-        keys = json.loads(key_file.read())
-        ETHERSCAN_API_KEY = keys['etherscan']
-        AUTH_TOKEN = keys['diffchecker']
 
     for i, source in enumerate(sources):
         code = retrieve_code(source)
@@ -70,5 +66,11 @@ def main():
     url = WEB_URL + json.loads(response.text)['slug']
     print(f'Your diff is ready at {url}')
 
+
 if __name__ == '__main__':
+    with open('api_keys.json', mode='r') as key_file:
+        keys = json.loads(key_file.read())
+        ETHERSCAN_API_KEY = keys['etherscan']
+        AUTH_TOKEN = keys['diffchecker']
+
     main()
