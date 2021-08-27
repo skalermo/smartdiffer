@@ -7,7 +7,7 @@ VERSION = '0.0.1'
 DESCRIPTION = 'Tool to compare smart contracts source code'
 
 setup(
-    name="smartdiff",
+    name="smartdiffer",
     version=VERSION,
     author="skalermo (Roman Moskalenko)",
     author_email="skalermo@gmail.com",
@@ -28,7 +28,7 @@ setup(
     url='https://github.com/skalermo/morphine',
     entry_points={
         'console_scripts': [
-            'smartdiff=smartdiff.cli:main',
+            'smartdiffer=smartdiffer.cli:main',
         ],
     },
 )
