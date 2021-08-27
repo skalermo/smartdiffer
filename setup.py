@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'Tool to compare smart contracts source code'
 
 setup(
@@ -15,7 +15,9 @@ setup(
     long_description_content_type="text/markdown",
     long_description=readme,
     packages=find_packages(),
-    install_requires=['requests', 'py-etherscan-api'],
+    install_requires=[
+        'py-etherscan-api>=0.8.0'
+    ],
     keywords=['python', 'etherscan-api', 'diffchecker'],
     classifiers=[
         "Development Status :: 1 - Planning",
