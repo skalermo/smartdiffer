@@ -16,7 +16,8 @@ setup(
     long_description=readme,
     packages=find_packages(),
     install_requires=[
-        'py-etherscan-api>=0.8.0'
+        'requests>=2.26.0',
+        'py-etherscan-api>=0.8.0',
     ],
     keywords=['python', 'etherscan-api', 'diffchecker'],
     classifiers=[
