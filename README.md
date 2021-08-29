@@ -9,6 +9,19 @@ Heavily relies on API of [Etherscan](https://etherscan.io/) and [Diffchecker](ht
 pip install smartdiffer
 ```
 
+## API keys
+
+In order to use smartdiffer you need to obtain [Etherscan Api-Key](https://etherscan.io/apidocs). Put it inside `api_keys.json` file under your home directory.
+
+The file should look like this:
+
+```json
+{
+  "etherscan": "",
+  "diffchecker": ""
+}
+```
+
 ## Usage
 
 Provide two sources you wish to compare. *Source* is either `address` of a smart contract on ethereum mainnet or `path` to a local file.
