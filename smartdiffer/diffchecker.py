@@ -14,7 +14,7 @@ def prep_diff(left: str, right: str) -> str:
 
 
 def _send_post_request(left: str = '', right: str = ''):
-    from config import DIFFCHECKER_AUTH_TOKEN
+    from smartdiffer.config import DIFFCHECKER_AUTH_TOKEN
 
     data = {
         'Authorization': 'Bearer ' + DIFFCHECKER_AUTH_TOKEN,
