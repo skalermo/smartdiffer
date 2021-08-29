@@ -2,9 +2,9 @@ import argparse
 import sys
 
 
-import config
-import diffchecker
-import srccode
+from smartdiffer import config
+from smartdiffer import diffchecker
+from smartdiffer import srccode
 
 
 def main():
@@ -35,5 +35,4 @@ def main():
 
 
 if __name__ == "__main__":
-    config.load_api_keys()
     sys.exit(main())

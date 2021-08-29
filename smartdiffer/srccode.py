@@ -2,7 +2,7 @@ import os
 from typing import Tuple, Optional
 
 
-import etherscan_api
+from smartdiffer import etherscan_api
 
 
 def retrieve_from(left_source: str, right_source: str) -> Optional[Tuple[str, str]]:
