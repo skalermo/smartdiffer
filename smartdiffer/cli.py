@@ -24,6 +24,7 @@ def main():
         parser.print_help()
         return 1
 
+    config.load_api_keys()
     if (res := srccode.retrieve_from(args.left_source, args.right_source)) is None:
         print('Cannot retrieve source.')
         raise Exception
