@@ -5,12 +5,14 @@ from typing import Optional
 from etherscan.contracts import Contract
 
 
+from smartdiffer.config import get_etherscan_api_key
+
+
 def get_sourcecode_from_contract(address: str) -> Optional[str]:
     if not _is_valid_address(address):
         return None
     try:
-        from smartdiffer.config import ETHERSCAN_API_KEY
-        query_result = Contract(address=address, api_key=ETHERSCAN_API_KEY).get_sourcecode()
+        query_result = Contract(address=address, api_key=get_etherscan_api_key()).get_sourcecode()
     except:
         return None
     return _get_sourcecode_from(query_result)
