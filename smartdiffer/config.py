@@ -8,7 +8,7 @@ ETHERSCAN_API_KEY: str
 
 def load_api_keys():
     home = os.path.expanduser('~')
-    dirs = ['.', '..', home]
+    dirs = [home, '.', '..']
     keys = None
 
     for dir in dirs:
@@ -19,6 +19,7 @@ def load_api_keys():
         else:
             with key_file:
                 keys = json.loads(key_file.read())
+            break
 
         if keys is None:
             print('Cannot locate file "api_keys.json"')
