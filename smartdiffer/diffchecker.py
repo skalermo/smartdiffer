@@ -2,6 +2,9 @@ import requests
 import json
 
 
+from smartdiffer.config import get_diffchecker_auth_token
+
+
 API_ENDPOINT = 'https://diffchecker-api-production.herokuapp.com'
 WEB_URL = 'https://www.diffchecker.com/'
 
@@ -14,10 +17,8 @@ def prep_diff(left: str, right: str) -> str:
 
 
 def _send_post_request(left: str = '', right: str = ''):
-    from smartdiffer.config import DIFFCHECKER_AUTH_TOKEN
-
     data = {
-        'Authorization': 'Bearer ' + DIFFCHECKER_AUTH_TOKEN,
+        'Authorization': 'Bearer ' + get_diffchecker_auth_token(),
         'left': left,
         'right': right,
         'expiry': 'day',
