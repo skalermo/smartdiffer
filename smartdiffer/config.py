@@ -21,14 +21,14 @@ def load_api_keys():
                 keys = json.loads(key_file.read())
             break
 
-        if keys is None:
-            print('Cannot locate file "api_keys.json"')
-            raise FileNotFoundError
+    if keys is None:
+        print('Cannot locate file "api_keys.json"')
+        raise FileNotFoundError
 
-        global DIFFCHECKER_AUTH_TOKEN
-        global ETHERSCAN_API_KEY
-        DIFFCHECKER_AUTH_TOKEN = keys['diffchecker']
-        ETHERSCAN_API_KEY = keys['etherscan']
+    global DIFFCHECKER_AUTH_TOKEN
+    global ETHERSCAN_API_KEY
+    DIFFCHECKER_AUTH_TOKEN = keys['diffchecker']
+    ETHERSCAN_API_KEY = keys['etherscan']
 
     
 def get_diffchecker_auth_token() -> str:
