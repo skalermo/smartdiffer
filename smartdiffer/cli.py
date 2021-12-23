@@ -9,8 +9,8 @@ from smartdiffer import srccode
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='smartdiff', 
-        description='Tool to compare smart contracts source code', 
+        prog='smartdiff',
+        description='Tool to compare smart contracts source code',
     )
     parser.add_argument(
         'left_source', help='Source on the left', type=str, metavar='LEFT'
@@ -25,7 +25,9 @@ def main():
         return 1
 
     config.load_api_keys()
-    if (res := srccode.retrieve_from(args.left_source, args.right_source)) is None:
+
+    res = srccode.retrieve_from(args.left_source, args.right_source)
+    if res is None:
         print('Cannot retrieve source.')
         raise Exception
     else:

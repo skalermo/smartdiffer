@@ -13,12 +13,11 @@ def load_api_keys():
 
     for dir in dirs:
         try:
-            key_file = open(dir + '/api_keys.json', mode='r')
-        except:
+            with open(dir + '/api_keys.json', mode='r') as key_file:
+                keys = json.loads(key_file.read())
+        except FileNotFoundError:
             pass
         else:
-            with key_file:
-                keys = json.loads(key_file.read())
             break
 
     if keys is None:
@@ -30,7 +29,7 @@ def load_api_keys():
     DIFFCHECKER_AUTH_TOKEN = keys['diffchecker']
     ETHERSCAN_API_KEY = keys['etherscan']
 
-    
+
 def get_diffchecker_auth_token() -> str:
     return DIFFCHECKER_AUTH_TOKEN
 

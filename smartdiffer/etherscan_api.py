@@ -12,14 +12,18 @@ def get_sourcecode_from_contract(address: str) -> Optional[str]:
     if not _is_valid_address(address):
         return None
     try:
-        query_result = Contract(address=address, api_key=get_etherscan_api_key()).get_sourcecode()
-    except:
+        query_result = Contract(
+            address=address, api_key=get_etherscan_api_key()
+        ).get_sourcecode()
+    except ConnectionRefusedError:
         return None
     return _get_sourcecode_from(query_result)
 
 
-def _is_valid_address(string: str) -> bool:
-    return string.startswith('0x') and len(string) == 2 + 20 * 2 and _is_hex(string[2:])
+def _is_valid_address(addr: str) -> bool:
+    expected_length = 2 + 20 * 2
+    return addr.startswith('0x') and \
+        len(addr) == expected_length and _is_hex(addr[2:])
 
 
 def _is_hex(string: str) -> bool:
@@ -31,8 +35,6 @@ def _is_hex(string: str) -> bool:
 
 
 def _get_sourcecode_from(query_result) -> str:
-    source_code_json = json.loads(query_result[0]['SourceCode'][1:-1])
-    sources = source_code_json['sources'].keys()
-    code = '\n'.join(source_code_json['sources'][src]['content'] for src in sources)
-    return code
-
+    src_json = json.loads(query_result[0]['SourceCode'][1:-1])
+    sources = src_json['sources'].keys()
+    return '\n'.join(src_json['sources'][s]['content'] for s in sources)
