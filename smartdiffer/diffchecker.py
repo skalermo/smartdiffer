@@ -24,7 +24,7 @@ def _send_post_request(left: str = '', right: str = ''):
         'expiry': 'day',
         'title': '',
     }
-    return requests.post(url = API_ENDPOINT + '/diffs', json = data)
+    return requests.post(url=API_ENDPOINT + '/diffs', json=data)
 
 
 def _retrieve_url(response):

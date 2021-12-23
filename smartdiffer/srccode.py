@@ -6,10 +6,10 @@ from pathlib import Path
 from smartdiffer import etherscan_api
 
 
-def retrieve_from(left_source: str, right_source: str) -> Optional[Tuple[str, str]]:
+def retrieve_from(left_src: str, right_src: str) -> Optional[Tuple[str, str]]:
     src_codes = (
-        _retrieve_sourcecode(left_source),
-        _retrieve_sourcecode(right_source),
+        _retrieve_sourcecode(left_src),
+        _retrieve_sourcecode(right_src),
     )
     if not all(src_codes):
         return None
@@ -28,11 +28,8 @@ def __get_sourcecode_from_file(rel_path: str) -> Optional[str]:
         cwd = Path(os.getcwd()).absolute()
         filepath = os.path.join(cwd, rel_path)
         f = open(filepath, 'r')
-    except IOError as e:
+    except FileNotFoundError:
         return None
-    except:
-        print('Unexpected error occurred during opening the file.')
-        raise Exception
     else:
         with f:
             src_code = f.read()
