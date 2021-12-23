@@ -24,13 +24,11 @@ def _retrieve_sourcecode(src: str) -> Optional[str]:
 
 
 def __get_sourcecode_from_file(rel_path: str) -> Optional[str]:
+    cwd = Path(os.getcwd()).absolute()
+    filepath = os.path.join(cwd, rel_path)
     try:
-        cwd = Path(os.getcwd()).absolute()
-        filepath = os.path.join(cwd, rel_path)
-        f = open(filepath, 'r')
+        with open(filepath, 'r') as f:
+            src_code = f.read()
     except FileNotFoundError:
         return None
-    else:
-        with f:
-            src_code = f.read()
     return src_code
