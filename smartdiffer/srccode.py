@@ -7,13 +7,11 @@ from smartdiffer import etherscan_api
 
 
 def retrieve_from(left_src: str, right_src: str) -> Optional[Tuple[str, str]]:
-    src_codes = (
-        _retrieve_sourcecode(left_src),
-        _retrieve_sourcecode(right_src),
-    )
-    if not all(src_codes):
-        return None
-    return src_codes
+    left_src_code = _retrieve_sourcecode(left_src)
+    right_src_code = _retrieve_sourcecode(right_src)
+    if left_src_code and right_src_code:
+        return left_src_code, right_src_code
+    return None
 
 
 def _retrieve_sourcecode(src: str) -> Optional[str]:
