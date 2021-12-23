@@ -1,6 +1,7 @@
-venv/
 __pycache__/
+venv/
 build/
+.idea/
 *.egg-info/
 *.whl
 *.tar.gz
