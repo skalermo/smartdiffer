@@ -9,7 +9,7 @@ API_ENDPOINT = 'https://diffchecker-api-production.herokuapp.com'
 WEB_URL = 'https://www.diffchecker.com/'
 
 
-def prep_diff(left: str, right: str) -> str:
+def get_diff_url(left: str, right: str) -> str:
     response = _send_post_request(left, right)
     return _retrieve_url(response)
 

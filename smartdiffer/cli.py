@@ -33,7 +33,7 @@ def main() -> int:
     else:
         left, right = res
 
-    url = diffchecker.prep_diff(left, right)
+    url = diffchecker.get_diff_url(left, right)
     print(f'Your diff is ready at {url}')
     return 0
 
