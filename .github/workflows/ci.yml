@@ -31,4 +31,4 @@ jobs:
       run: flake8 smartdiffer
 
     - name: Typecheck with mypy
-      run: mypy smartdiffer
+      run: mypy --strict smartdiffer
