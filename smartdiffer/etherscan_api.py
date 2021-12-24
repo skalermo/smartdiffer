@@ -34,7 +34,7 @@ def _is_hex(string: str) -> bool:
         return False
 
 
-def _get_sourcecode_from(query_result) -> str:
+def _get_sourcecode_from(query_result) -> str:  # type: ignore[no-untyped-def]
     src_json = json.loads(query_result[0]['SourceCode'][1:-1])
     sources = src_json['sources'].keys()
     return '\n'.join(src_json['sources'][s]['content'] for s in sources)

@@ -1,3 +1,4 @@
 -r requirements.txt
 flake8==4.0.1
-pytype==2020.2.6
+mypy==0.930
+types-requests==2.26.2

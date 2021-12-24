@@ -6,7 +6,7 @@ DIFFCHECKER_AUTH_TOKEN: str = ''
 ETHERSCAN_API_KEY: str = ''
 
 
-def load_api_keys():
+def load_api_keys() -> None:
     home = os.path.expanduser('~')
     dirs = [home, '.', '..']
     keys = None

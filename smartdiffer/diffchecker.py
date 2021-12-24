@@ -16,7 +16,7 @@ def prep_diff(left: str, right: str) -> str:
     return url
 
 
-def _send_post_request(left: str = '', right: str = ''):
+def _send_post_request(left: str = '', right: str = '') -> requests.Response:
     data = {
         'Authorization': 'Bearer ' + get_diffchecker_auth_token(),
         'left': left,
@@ -27,5 +27,5 @@ def _send_post_request(left: str = '', right: str = ''):
     return requests.post(url=API_ENDPOINT + '/diffs', json=data)
 
 
-def _retrieve_url(response):
-    return WEB_URL + json.loads(response.text)['slug']
+def _retrieve_url(response: requests.Response) -> str:
+    return WEB_URL + str(json.loads(response.text)['slug'])
