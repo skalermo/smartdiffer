@@ -7,7 +7,7 @@ from smartdiffer import diffchecker
 from smartdiffer import srccode
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(
         prog='smartdiff',
         description='Tool to compare smart contracts source code',

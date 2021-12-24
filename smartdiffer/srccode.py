@@ -18,7 +18,8 @@ def _retrieve_sourcecode(src: str) -> Optional[str]:
     src_code = __get_sourcecode_from_file(src)
     if src_code is not None:
         return src_code
-    return etherscan_api.get_sourcecode_from_contract(address=src)
+    src_code = etherscan_api.get_sourcecode_from_contract(address=src)
+    return src_code
 
 
 def __get_sourcecode_from_file(rel_path: str) -> Optional[str]:
