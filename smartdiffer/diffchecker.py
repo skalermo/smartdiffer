@@ -26,4 +26,4 @@ def _send_post_request(left: str = '', right: str = '') -> requests.Response:
 
 
 def _retrieve_url(response: requests.Response) -> str:
-    return WEB_URL + str(json.loads(response.text)['slug'])
+    return WEB_URL + str(json.loads(response.text).get('slug'))
