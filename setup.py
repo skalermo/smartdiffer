@@ -28,7 +28,7 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
-    url='https://github.com/skalermo/morphine',
+    url='https://github.com/skalermo/smartdiffer',
     entry_points={
         'console_scripts': [
             'smartdiffer=smartdiffer.cli:main',
