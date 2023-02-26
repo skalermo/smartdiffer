@@ -5,7 +5,7 @@ import json
 from smartdiffer.config import get_diffchecker_auth_token
 
 
-API_ENDPOINT = 'https://diffchecker-api-production.herokuapp.com'
+API_ENDPOINT = 'https://api.diffchecker.com'
 WEB_URL = 'https://www.diffchecker.com/'
 
 
